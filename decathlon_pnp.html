@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Decathlon - Print & Play | Reiner Knizia</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px 25px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .olympic-rings {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            gap: -5px;
+        }
+        
+        .ring {
+            width: 35px;
+            height: 35px;
+            border: 4px solid;
+            border-radius: 50%;
+            margin: 0 -3px;
+            opacity: 0.8;
+        }
+        
+        .ring:nth-child(1) { border-color: #0085c7; }
+        .ring:nth-child(2) { border-color: #f4c300; margin-top: 5px; }
+        .ring:nth-child(3) { border-color: #000000; }
+        .ring:nth-child(4) { border-color: #009f3d; margin-top: 5px; }
+        .ring:nth-child(5) { border-color: #df0024; }
+        
+        h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .author {
+            color: #764ba2;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .description {
+            text-align: center;
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+        
+        .downloads {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
+        }
+        
+        .download-btn:hover:before,
+        .download-btn:active:before {
+            left: 0;
+        }
+        
+        .download-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .btn-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 1;
+            position: relative;
+        }
+        
+        .icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+        
+        .btn-text {
+            flex-grow: 1;
+            text-align: left;
+        }
+        
+        .btn-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        
+        .btn-subtitle {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        
+        .arrow {
+            width: 24px;
+            height: 24px;
+            opacity: 0.8;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #888;
+            font-size: 12px;
+        }
+        
+        .ludonautas {
+            color: #764ba2;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 380px) {
+            h1 {
+                font-size: 28px;
+            }
+            
+            .download-btn {
+                padding: 15px 18px;
+            }
+            
+            .icon {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .btn-title {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="olympic-rings">
+                <div class="ring"></div>
+                <div class="ring"></div>
+                <div class="ring"></div>
+                <div class="ring"></div>
+                <div class="ring"></div>
+            </div>
+            <h1>DECATHLON</h1>
+            <div class="subtitle">PRINT & PLAY</div>
+            <div class="author">Reiner Knizia</div>
+        </div>
+        
+        <div class="description">
+            Um jogo rápido de atletismo onde usas dados para competir em 10 modalidades olímpicas. Imprime e joga!
+        </div>
+        
+        <div class="downloads">
+            <a href="decathlon travel cards.pdf" class="download-btn" download>
+                <div class="btn-content">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/>
+                        </svg>
+                    </div>
+                    <div class="btn-text">
+                        <div class="btn-title">Cartas do Jogo</div>
+                        <div class="btn-subtitle">PDF para impressão</div>
+                    </div>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="white">
+                        <path d="M7 14l5-5 5 5z" transform="rotate(180 12 12)"/>
+                    </svg>
+                </div>
+            </a>
+            
+            <a href="decatlo_regras_ptbr.pdf" class="download-btn" download>
+                <div class="btn-content">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <div class="btn-text">
+                        <div class="btn-title">Regras do Jogo</div>
+                        <div class="btn-subtitle">Manual em português</div>
+                    </div>
+                    <svg class="arrow" viewBox="0 0 24 24" fill="white">
+                        <path d="M7 14l5-5 5 5z" transform="rotate(180 12 12)"/>
+                    </svg>
+                </div>
+            </a>
+        </div>
+        
+        <div class="footer">
+            Distribuído por<br>
+            <span class="ludonautas">LUDONAUTAS</span>
+        </div>
+    </div>
+</body>
+</html>
